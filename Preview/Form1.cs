@@ -27,8 +27,8 @@ namespace Preview
 
         protected override void OnLoad(EventArgs e)
         {
-            WidthOrg = pictureBox_preview.Width;
-            HeightOrg = pictureBox_preview.Height;
+            WidthOrg = panel1.Width;
+            HeightOrg = panel1.Height;
             selectPath();
             base.OnLoad(e);
         }
@@ -88,6 +88,13 @@ namespace Preview
             pictureBox_preview.Width = (int)(WidthOrg * Zoom);
             pictureBox_preview.Height = (int)(HeightOrg * Zoom);
             MakeDwgPreview();
+        }
+
+        private void panel1_SizeChanged(object sender, EventArgs e)
+        {
+            WidthOrg = panel1.Width;
+            HeightOrg = panel1.Height;
+            UpdatePreview();
         }
     }
 }

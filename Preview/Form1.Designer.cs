@@ -30,10 +30,10 @@ namespace Preview
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox_preview = new System.Windows.Forms.PictureBox();
             this.button_zoonOld = new System.Windows.Forms.Button();
             this.button_zoomOut = new System.Windows.Forms.Button();
             this.button_zoomIn = new System.Windows.Forms.Button();
-            this.pictureBox_preview = new System.Windows.Forms.PictureBox();
             this.button_path = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_preview)).BeginInit();
@@ -41,17 +41,29 @@ namespace Preview
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox_preview);
             this.panel1.Location = new System.Drawing.Point(22, 37);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(585, 367);
             this.panel1.TabIndex = 4;
+            this.panel1.SizeChanged += new System.EventHandler(this.panel1_SizeChanged);
+            // 
+            // pictureBox_preview
+            // 
+            this.pictureBox_preview.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_preview.Name = "pictureBox_preview";
+            this.pictureBox_preview.Size = new System.Drawing.Size(585, 367);
+            this.pictureBox_preview.TabIndex = 0;
+            this.pictureBox_preview.TabStop = false;
             // 
             // button_zoonOld
             // 
             this.button_zoonOld.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoonOld.Location = new System.Drawing.Point(508, 3);
+            this.button_zoonOld.Location = new System.Drawing.Point(568, 3);
             this.button_zoonOld.Name = "button_zoonOld";
             this.button_zoonOld.Size = new System.Drawing.Size(39, 32);
             this.button_zoonOld.TabIndex = 3;
@@ -62,7 +74,7 @@ namespace Preview
             // button_zoomOut
             // 
             this.button_zoomOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoomOut.Location = new System.Drawing.Point(463, 3);
+            this.button_zoomOut.Location = new System.Drawing.Point(523, 3);
             this.button_zoomOut.Name = "button_zoomOut";
             this.button_zoomOut.Size = new System.Drawing.Size(39, 32);
             this.button_zoomOut.TabIndex = 2;
@@ -73,22 +85,13 @@ namespace Preview
             // button_zoomIn
             // 
             this.button_zoomIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoomIn.Location = new System.Drawing.Point(418, 3);
+            this.button_zoomIn.Location = new System.Drawing.Point(478, 3);
             this.button_zoomIn.Name = "button_zoomIn";
             this.button_zoomIn.Size = new System.Drawing.Size(39, 32);
             this.button_zoomIn.TabIndex = 1;
             this.button_zoomIn.Text = "+";
             this.button_zoomIn.UseVisualStyleBackColor = true;
             this.button_zoomIn.Click += new System.EventHandler(this.button_zoomIn_Click);
-            // 
-            // pictureBox_preview
-            // 
-            this.pictureBox_preview.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_preview.Name = "pictureBox_preview";
-            this.pictureBox_preview.Size = new System.Drawing.Size(585, 367);
-            this.pictureBox_preview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox_preview.TabIndex = 0;
-            this.pictureBox_preview.TabStop = false;
             // 
             // button_path
             // 
