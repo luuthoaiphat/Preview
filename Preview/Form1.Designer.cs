@@ -35,8 +35,10 @@ namespace Preview
             this.button_zoomOut = new System.Windows.Forms.Button();
             this.button_zoomIn = new System.Windows.Forms.Button();
             this.button_path = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_preview)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,8 +67,7 @@ namespace Preview
             // 
             // button_zoonOld
             // 
-            this.button_zoonOld.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoonOld.Location = new System.Drawing.Point(568, 3);
+            this.button_zoonOld.Location = new System.Drawing.Point(76, 0);
             this.button_zoonOld.Name = "button_zoonOld";
             this.button_zoonOld.Size = new System.Drawing.Size(39, 32);
             this.button_zoonOld.TabIndex = 3;
@@ -76,8 +77,7 @@ namespace Preview
             // 
             // button_zoomOut
             // 
-            this.button_zoomOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoomOut.Location = new System.Drawing.Point(523, 3);
+            this.button_zoomOut.Location = new System.Drawing.Point(38, 0);
             this.button_zoomOut.Name = "button_zoomOut";
             this.button_zoomOut.Size = new System.Drawing.Size(39, 32);
             this.button_zoomOut.TabIndex = 2;
@@ -87,8 +87,7 @@ namespace Preview
             // 
             // button_zoomIn
             // 
-            this.button_zoomIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_zoomIn.Location = new System.Drawing.Point(478, 3);
+            this.button_zoomIn.Location = new System.Drawing.Point(1, 0);
             this.button_zoomIn.Name = "button_zoomIn";
             this.button_zoomIn.Size = new System.Drawing.Size(39, 32);
             this.button_zoomIn.TabIndex = 1;
@@ -106,21 +105,31 @@ namespace Preview
             this.button_path.UseVisualStyleBackColor = true;
             this.button_path.Click += new System.EventHandler(this.button_path_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.button_zoonOld);
+            this.panel2.Controls.Add(this.button_zoomOut);
+            this.panel2.Controls.Add(this.button_zoomIn);
+            this.panel2.Location = new System.Drawing.Point(458, 37);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(116, 33);
+            this.panel2.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 429);
-            this.Controls.Add(this.button_zoonOld);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button_path);
-            this.Controls.Add(this.button_zoomOut);
-            this.Controls.Add(this.button_zoomIn);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(652, 468);
             this.Name = "Form1";
             this.Text = "Form_Preview";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_preview)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -133,5 +142,6 @@ namespace Preview
         private System.Windows.Forms.PictureBox pictureBox_preview;
         private System.Windows.Forms.Button button_path;
         private System.Windows.Forms.Button button_zoonOld;
+        private System.Windows.Forms.Panel panel2;
     }
 }
