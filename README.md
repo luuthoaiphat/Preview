@@ -2,8 +2,8 @@
 プレビューの拡大表示を対応するサンプル
 
 ## 環境開発
-BricsCAD V23
-言語 C#
+- BricsCAD V23
+- 言語 C#
 
 ## 方法
 1. イメージをパネルに入れる
@@ -18,3 +18,6 @@ BricsCAD V23
 5. 「=」ボタンを押すとプレビューが全体表示される。
 6. イメージ上にスパンすると、移動できる。
 7. 画面をリサイズすると、イメージが大きくて、拡大表示が変わらない。
+
+## 動画
+![動画](https://github.com/luuthoaiphat/Preview/blob/main/Preview/image/Preview.gif)
