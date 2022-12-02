@@ -59,6 +59,9 @@ namespace Preview
             this.pictureBox_preview.Size = new System.Drawing.Size(585, 367);
             this.pictureBox_preview.TabIndex = 0;
             this.pictureBox_preview.TabStop = false;
+            this.pictureBox_preview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picktureBox_preview_MouseDown);
+            this.pictureBox_preview.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pickturBox_preview_MouseMove);
+            this.pictureBox_preview.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picktureBox_preview_MouseUp);
             // 
             // button_zoonOld
             // 
@@ -113,6 +116,7 @@ namespace Preview
             this.Controls.Add(this.button_zoomOut);
             this.Controls.Add(this.button_zoomIn);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(652, 468);
             this.Name = "Form1";
             this.Text = "Form_Preview";
             this.panel1.ResumeLayout(false);

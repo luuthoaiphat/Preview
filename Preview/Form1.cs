@@ -67,6 +67,7 @@ namespace Preview
         private void button_zoomIn_Click(object sender, EventArgs e)
         {
             Zoom += 0.1;
+            panel1.AutoScroll = Zoom > 1;
             UpdatePreview();
         }
 
@@ -74,12 +75,14 @@ namespace Preview
         private void button_zoomOut_Click(object sender, EventArgs e)
         {
             Zoom -= 0.1;
+            panel1.AutoScroll = Zoom > 1;
             UpdatePreview();
         }
 
         private void button_zoonOld_Click(object sender, EventArgs e)
         {
             Zoom = 1;
+            panel1.AutoScroll = false;
             UpdatePreview();
         }
 
@@ -95,6 +98,52 @@ namespace Preview
             WidthOrg = panel1.Width;
             HeightOrg = panel1.Height;
             UpdatePreview();
+        }
+
+        bool StartMovePic = false;
+        int PosOrgX,PosOrgY;
+
+        private void picktureBox_preview_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (Zoom <= 1) {
+                return;
+            }
+            StartMovePic = true;
+            PosOrgX = e.X;
+            PosOrgY = e.Y;
+        }
+
+        private void pickturBox_preview_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (StartMovePic)
+            {
+                var hor = panel1.HorizontalScroll;
+                var ver = panel1.VerticalScroll;
+                var desX = hor.Value - (e.X - PosOrgX);
+                if (e.X - PosOrgX != 0)
+                {
+                    desX = Math.Min(desX, hor.Maximum);
+                    desX = Math.Max(desX, hor.Minimum);
+                    panel1.HorizontalScroll.Value = desX;
+                    panel1.ScrollControlIntoView(panel1);
+                    PosOrgX = e.X;
+                }
+                if (e.Y - PosOrgY != 0)
+                {
+                    var desY = ver.Value - (e.Y - PosOrgY);
+                    desY = Math.Min(desY, ver.Maximum);
+                    desY = Math.Max(desY, ver.Minimum);
+                    panel1.VerticalScroll.Value = desY;
+                    panel1.ScrollControlIntoView(panel1);
+                    PosOrgY = e.Y;
+                }
+                pictureBox_preview.Refresh();
+            }
+        }
+
+        private void picktureBox_preview_MouseUp(object sender, MouseEventArgs e)
+        {
+            StartMovePic = false;
         }
     }
 }
