@@ -15,6 +15,7 @@ namespace Preview
     {
         int WidthOrg;
         int HeightOrg;
+        double RatioPanelWAndH;
         double Zoom = 1;
         string PathDwg;
 
@@ -27,8 +28,9 @@ namespace Preview
 
         protected override void OnLoad(EventArgs e)
         {
-            WidthOrg = panel1.Width;
-            HeightOrg = panel1.Height;
+            WidthOrg = pictureBox_preview.Width;
+            HeightOrg = pictureBox_preview.Height;
+            RatioPanelWAndH = (double)WidthOrg / (double)HeightOrg;
             selectPath();
             base.OnLoad(e);
         }
@@ -86,10 +88,23 @@ namespace Preview
             UpdatePreview();
         }
 
+        Size GetSizeAdjsted()
+        {
+            var w = WidthOrg * Zoom;
+            var h = HeightOrg * Zoom;
+            //画面サイズを変更したときは、縦横比は変わらない目的
+            if (RatioPanelWAndH > (w / h)) {
+                h = w / RatioPanelWAndH;
+            }
+            else {
+                w = h * RatioPanelWAndH;
+            }
+            return new Size((int)w, (int)h);
+        }
+
         void UpdatePreview()
         {
-            pictureBox_preview.Width = (int)(WidthOrg * Zoom);
-            pictureBox_preview.Height = (int)(HeightOrg * Zoom);
+            pictureBox_preview.Size = GetSizeAdjsted();
             MakeDwgPreview();
         }
 
